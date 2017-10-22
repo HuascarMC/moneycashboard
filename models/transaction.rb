@@ -10,7 +10,7 @@ class Transaction
 
   def save()
     sql = "INSERT INTO transactions (amount, tag, shop)
-     VALUES ($1, $2, $3) WHERE id = $1 RETURNING *"
+     VALUES ($1, $2, $3)RETURNING *"
      values = [@amount, @tag, @shop]
      @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
