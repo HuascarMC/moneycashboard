@@ -20,4 +20,14 @@ class TestTransaction < MiniTest::Test
    result = Transaction.all()
    assert_equal(1, result.count)
   end
+
+  def test_total()
+    result = Transaction.total()
+    assert_equal('200', result)
+  end
+
+  def test_total_by_tag()
+    result = Transaction.totaltag('food')
+    assert_equal('200', result)
+  end
 end

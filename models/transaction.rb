@@ -24,4 +24,16 @@ class Transaction
     transactions = results.map {|result| Transaction.new(result)}
     return transactions
   end
+
+  def self.total()
+    sql = "SELECT SUM(amount) FROM transactions"
+    values = []
+    SqlRunner.run(sql, values)[0]['sum']
+  end
+
+  def self.totaltag(tag)
+    sql = "SELECT SUM(amount) FROM transactions WHERE tag = $1"
+    values = [tag]
+    SqlRunner.run(sql, values)[0]['sum']
+  end
 end
