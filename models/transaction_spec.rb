@@ -9,6 +9,7 @@ class TestTransaction < MiniTest::Test
       'tag' => 'food',
       'shop' => 'tesco'
     })
+
   end
 
   def test_save()
@@ -16,6 +17,7 @@ class TestTransaction < MiniTest::Test
   end
 
   def test_all()
-   assert(1)
+   result = Transaction.all()
+   assert_equal(1, result.count)
   end
 end
