@@ -14,4 +14,8 @@ class TestTransaction < MiniTest::Test
   def test_save()
    assert_equal(1, @transaction.save())
   end
+
+  def test_all()
+   assert(1)
+  end
 end
