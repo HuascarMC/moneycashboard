@@ -27,6 +27,6 @@ end
 
 post '/transaction/by_tag' do
   @tags = Transaction.alltags()
-  @total = Transaction.totaltag(params.to_s)
-  erb(:total)
+  @total = Transaction.totaltag(params['sum'])
+  erb(:by_tag)
 end

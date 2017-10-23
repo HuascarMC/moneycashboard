@@ -1,6 +1,6 @@
 <form action="/transaction/by_tag" method="post">
   <label for="ttag">Select tag: </label>
-    <select id="ttag" name="tag">
+    <select id="ttag" name="sum">
         <% @tags.each do |object| %>
         <option value="<%=object.tag%>"><%= object.tag %></option>
         <%end%>
@@ -8,4 +8,4 @@
 
     <input type="submit" value="Total by tag">
 </form>
-<!-- <p>Total: <%= @total %></p> -->
+<p>Total: <%= @total %></p>
