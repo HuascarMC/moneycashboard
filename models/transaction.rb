@@ -44,4 +44,17 @@ class Transaction
     transactions = results.map {|transaction| Transaction.new(transaction)}
     return transactions
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)[0]
+    transaction = Transaction.new(result)
+  end
+
+  def update()
+    sql = "UPDATE transactions (amount, tag, shop) VALUES ($1, $2, $3) HERE id = $4"
+    values = [@amount, @tag, @shop, @id]
+    SqlRunner.run(sql, values)
+  end
 end

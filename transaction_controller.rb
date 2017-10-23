@@ -30,3 +30,8 @@ post '/transaction/by_tag' do
   @total = Transaction.totaltag(params['sum'])
   erb(:by_tag)
 end
+
+get '/transaction/by_tag/edit' do
+  @transaction = Transaction.find(params)
+  erb(:edit)
+end
