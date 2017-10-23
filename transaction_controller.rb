@@ -21,6 +21,12 @@ get '/transaction/all' do
 end
 
 get '/transaction/by_tag' do
-  @transactions = Transacation.totaltag(params)
+  @tags = Transaction.alltags()
   erb(:by_tag)
+end
+
+post '/transaction/by_tag' do
+  @tags = Transaction.alltags()
+  @total = Transaction.totaltag(params.to_s)
+  erb(:total)
 end

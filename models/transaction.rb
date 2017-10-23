@@ -41,7 +41,7 @@ class Transaction
     sql = "SELECT DISTINCT tag FROM transactions"
     values = []
     results = SqlRunner.run(sql, values)
-    tags = results.map {|result| result["tag"]}
-    # transactions = results.map {|transaction| Transaction.new(transaction)}
+    transactions = results.map {|transaction| Transaction.new(transaction)}
+    return transactions
   end
 end

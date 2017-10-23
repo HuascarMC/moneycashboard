@@ -1,7 +1,11 @@
-<form action="transaction/by_tag" method="get">
-  <label for="ttag"></label>
+<form action="/transaction/by_tag" method="post">
+  <label for="ttag">Select tag: </label>
     <select id="ttag" name="tag">
-
+        <% @tags.each do |object| %>
+        <option value="<%=object.tag%>"><%= object.tag %></option>
+        <%end%>
     </select>
+
+    <input type="submit" value="Total by tag">
 </form>
-<p><%= @transactions %></p>
+<!-- <p>Total: <%= @total %></p> -->
