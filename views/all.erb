@@ -1,6 +1,13 @@
 <% @transactions.each do |transaction|%>
  <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %></p>
  <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
+
+ <form  action="/transaction/<%= transaction.id %>/delete" method="post">
+   <input type="submit" value="delete"/>
+ </form>
+
 <% end %>
 
+<% if @total != nil %>
 <p> Total: <%= @total %> </p>
+<% end %>

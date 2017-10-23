@@ -40,3 +40,9 @@ post '/transaction/by_tag' do
   @total = Transaction.totaltag(params['sum'])
   erb(:by_tag)
 end
+
+post '/transaction/:id/delete' do
+  @transaction = Transaction.find(params[:id])
+  @transaction.delete()
+  redirect to '/transaction/all'
+end
