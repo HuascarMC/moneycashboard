@@ -36,4 +36,6 @@ class Transaction
     values = [tag]
     SqlRunner.run(sql, values)[0]['sum']
   end
+
+  
 end
