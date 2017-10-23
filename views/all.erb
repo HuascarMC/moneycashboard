@@ -1,0 +1,3 @@
+<% @transactions.each do |transaction|%>
+ <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %></p>
+<% end %>
