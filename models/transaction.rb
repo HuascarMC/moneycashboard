@@ -37,5 +37,11 @@ class Transaction
     SqlRunner.run(sql, values)[0]['sum']
   end
 
-  
+  def self.alltags()
+    sql = "SELECT DISTINCT tag FROM transactions"
+    values = []
+    results = SqlRunner.run(sql, values)
+    tags = results.map {|result| result["tag"]}
+    # transactions = results.map {|transaction| Transaction.new(transaction)}
+  end
 end
