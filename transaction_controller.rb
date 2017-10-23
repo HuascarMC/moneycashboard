@@ -20,6 +20,16 @@ get '/transaction/all' do
   erb(:all)
 end
 
+get '/transaction/:id/edit' do
+  @transaction = Transaction.find(params[:id])
+  erb(:edit)
+end
+
+post '/transaction/:id/edit' do
+  Transaction.new(params).update()
+  redirect to '/transaction/all'
+end
+
 get '/transaction/by_tag' do
   @tags = Transaction.alltags()
   erb(:by_tag)
@@ -29,9 +39,4 @@ post '/transaction/by_tag' do
   @tags = Transaction.alltags()
   @total = Transaction.totaltag(params['sum'])
   erb(:by_tag)
-end
-
-get '/transaction/by_tag/edit' do
-  @transaction = Transaction.find(params)
-  erb(:edit)
 end

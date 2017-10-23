@@ -1,14 +1,12 @@
-<form action="/transaction/all" method="post">
-  <form action="/transaction" method="post">
-    <label for="tamount">Amount £</label>
-    <input type="number" name="amount" id="tamount"/>
+<form action="/transaction/<%= @transaction.id %>/edit" method="post">
+  <label for="tamount">Amount £</label>
+  <input type="number" name="amount" value="<%= @transaction.amount.to_s %>" id="tamount"/>
 
-    <label for="ttag">Tag:</label>
-    <input type="text" name="tag" id="ttag"/>
+  <label for="ttag">Tag:</label>
+  <input type="text" value="<%= @transaction.tag %>" name="tag" id="ttag"/>
 
-    <label for="tshop">Shop:</label>
-    <input type="text" name="shop" id="tshop"/>
+  <label for="tshop">Shop:</label>
+  <input type="text" name="shop" value="<%= @transaction.shop %>" id="tshop"/>
 
-    <input type="submit" value="Save transaction">
-  </form>
+  <input type="submit" value="update">
 </form>

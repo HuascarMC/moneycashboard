@@ -1,5 +1,6 @@
 <% @transactions.each do |transaction|%>
  <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %></p>
+ <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
 <% end %>
 
 <p> Total: <%= @total %> </p>
