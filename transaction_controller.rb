@@ -25,6 +25,11 @@ get '/transaction/all' do
   erb(:all)
 end
 
+post '/transaction/all' do
+  @users = User.all()
+
+end
+
 get '/transaction/:id/edit' do
   @transaction = Transaction.find(params[:id])
   erb(:edit)
@@ -50,4 +55,14 @@ post '/transaction/:id/delete' do
   @transaction = Transaction.find(params[:id])
   @transaction.delete()
   redirect to '/transaction/all'
+end
+
+get '/transaction/new_user' do
+  erb(:create)
+end
+
+post '/transaction/new_user' do
+  @user = User.new(params)
+  @user.save()
+  redirect to '/transaction'
 end

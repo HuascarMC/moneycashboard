@@ -1,23 +1,28 @@
-<% @transactions.each do |transaction|%>
- <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
- <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
+<form action="index.html" method="post">
+  <label for="cuser">Select user:</label>
+  <input id="cuser" type="text" name="">
+</form>
 
- <form  action="/transaction/<%= transaction.id %>/delete" method="post">
-   <input type="submit" value="delete"/>
- </form>
+    <% @transactions.each do |transaction|%>
+     <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
+     <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
 
-<% end %>
-<% if @total != nil %>
-<p> Total: <%= @total %> </p>
-<% end %>
+     <form  action="/transaction/<%= transaction.id %>/delete" method="post">
+       <input type="submit" value="delete"/>
+     </form>
 
- <% if @budget != nil %>
-   <p>Budget: <%= @budget %></p>
-       <% if @budget.to_i < 0 %>
-       <p> You've gone over budget, you're broke.</p>
+    <% end %>
+    <% if @total != nil %>
+    <p> Total: <%= @total %> </p>
+    <% end %>
+
+     <% if @budget != nil %>
+       <p>Budget: <%= @budget %></p>
+           <% if @budget.to_i < 0 %>
+           <p> You've gone over budget, you're broke.</p>
+           <% else %>
+           <p> You still have £<%= @budget %> to spend.</p>
+           <% end %>
        <% else %>
-       <p> You still have £<%= @budget %> to spend.</p>
-       <% end %>
-   <% else %>
-   <p>No budget has been set yet.</p>
- <% end %>
+       <p>No budget has been set yet.</p>
+     <% end %>
