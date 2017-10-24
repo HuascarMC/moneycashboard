@@ -21,11 +21,3 @@ class User
     @budget = @budget - amount
   end
 end
-
-
-
-# sql = "SELECT * FROM transactions WHERE user_id = $1"
-# values = [@id]
-# results = SqlRunner.run(sql, values)
-# transactions = results.map {|result| result["amount"]}
-# return transactions
