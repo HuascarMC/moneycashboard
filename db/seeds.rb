@@ -24,8 +24,8 @@ transaction_2 = Transaction.new({
   'user_id' => user_1.id
 })
 
-transaction_1.save()
-transaction_2.save()
+# transaction_1.save()
+# transaction_2.save()
 
 binding.pry
 nil

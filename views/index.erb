@@ -9,9 +9,9 @@
   <input type="text" name="shop" id="tshop"/>
 
   <label for="tuser">User:</label>
-  <select id="tuser" name="user">
+  <select id="tuser" name="user_id">
     <% @users.each do |user| %>
-      <option value="<%= user.name %>"><%= user.name %></option>
+      <option value="<%= user.id %>"><%= user.name %></option>
     <% end %>
   </select>
 

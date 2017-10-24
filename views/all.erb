@@ -7,7 +7,10 @@
  </form>
 
 <% end %>
-<p>Budget: <%= @budget %></p>
 <% if @total != nil %>
 <p> Total: <%= @total %> </p>
 <% end %>
+
+ <% if @budget != nil %>
+   <p>Budget: <%= @budget %></p>
+ <% end %>
