@@ -21,7 +21,7 @@ end
 get '/transaction/all' do
   @transactions = Transaction.all()
   @total = Transaction.total()
-  @budget = User.budget(1)
+  @users = User.all()
   erb(:all)
 end
 

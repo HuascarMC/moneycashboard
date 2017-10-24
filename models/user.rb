@@ -25,9 +25,10 @@ class User
   end
 
   def self.budget(id)
+    return if User.all() != nil
     sql = "SELECT budget FROM users WHERE id = $1"
     values = [id]
-    SqlRunner.run(sql, values)[0]["budget"]
+    SqlRunner.run(sql, values)[0]['budget']
   end
 
   def self.all()

@@ -13,4 +13,11 @@
 
  <% if @budget != nil %>
    <p>Budget: <%= @budget %></p>
+       <% if @budget.to_i < 0 %>
+       <p> You've gone over budget, you're broke.</p>
+       <% else %>
+       <p> You still have £<%= @budget %> to spend.</p>
+       <% end %>
+   <% else %>
+   <p>No budget has been set yet.</p>
  <% end %>
