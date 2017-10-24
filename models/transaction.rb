@@ -27,9 +27,9 @@ class Transaction
     return transactions
   end
 
-  def self.total()
-    sql = "SELECT SUM(amount) FROM transactions"
-    values = []
+  def self.total(id)
+    sql = "SELECT SUM(amount) FROM transactions WHERE user_id = $1"
+    values = [id]
     SqlRunner.run(sql, values)[0]['sum']
   end
 

@@ -1,0 +1,25 @@
+<% if @user != nil %>
+  <% @transactions.each do |transaction|%>
+   <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
+   <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
+
+   <form  action="/transaction/<%= transaction.id %>/delete" method="post">
+     <input type="submit" value="delete"/>
+   </form>
+
+  <% end %>
+  <% if @total != nil %>
+  <p> Total: <%= @total %> </p>
+  <% end %>
+
+   <% if @user.budget != nil %>
+     <p>Budget: <%= @user.budget %></p>
+         <% if @user.budget.to_i < 0 %>
+         <p> You've gone over budget, you're broke.</p>
+         <% else %>
+         <p> You still have £<%= @user.budget %> to spend.</p>
+         <% end %>
+     <% else %>
+     <p>No budget has been set yet.</p>
+   <% end %>
+<% end %>   

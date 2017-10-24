@@ -1,8 +1,10 @@
-<form action="/transaction/all" method="post">
+<form action="/transaction/all/:user" method="post">
   <label for="cuser">Select user:</label>
   <select id="cuser" name="id">
     <% @users.each do |user| %>
       <option value="<%= user.id %>"><%= user.name %></option>
     <% end %>
   </select>
+
+  <input type="submit" value="find">
 </form>

@@ -12,22 +12,22 @@ end
 
 post '/transaction' do
   @transaction = Transaction.new(params)
-  @saved = @transaction.save()
-  @user = User.find(@transaction)
+  @transaction.save()
+  @user = User.findt(@transaction)
   @user.subtract(@transaction)
   redirect to '/transaction'
 end
 
-get '/transaction/:id/all' do
+get '/transaction/all/:user' do
   @users = User.all()
   erb(:all)
 end
 
-post '/transaction/:id/all' do
-  @users = User.all()
+post '/transaction/all/:user' do
   @user = User.find(params[:id])
   @transactions = @user.find_transactions()
-  redirect to '/transaction/:id/all'
+  @total = Transaction.total(@user.id)
+  erb(:show)
 end
 
 get '/transaction/:id/edit' do
@@ -54,7 +54,7 @@ end
 post '/transaction/:id/delete' do
   @transaction = Transaction.find(params[:id])
   @transaction.delete()
-  redirect to '/transaction/all'
+  redirect to '/transaction/all/:user'
 end
 
 get '/transaction/new_user' do

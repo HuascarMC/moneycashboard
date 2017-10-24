@@ -17,8 +17,7 @@ class User
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
-  def self.find(transaction)
-    return if transaction != nil
+  def self.findt(transaction)
     sql = "SELECT * FROM users WHERE id = $1"
     values = [transaction.user_id]
     result = SqlRunner.run(sql, values)[0]
@@ -26,6 +25,7 @@ class User
   end
 
   def self.find(id)
+    return if id == nil
     sql = "SELECT * FROM users WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)[0]
