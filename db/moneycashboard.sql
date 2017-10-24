@@ -2,7 +2,7 @@ DROP TABLE transactions;
 DROP TABLE users;
 
 CREATE TABLE users(
-  id SERIAL PRIMARY KEY,
+  id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
   budget INT4
 );

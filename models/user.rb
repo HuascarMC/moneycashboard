@@ -20,4 +20,25 @@ class User
     amount = transaction.amount
     @budget = @budget - amount
   end
+
+  def self.find(transaction)
+    sql = "SELECT * FROM users WHERE id = $1"
+    values = [transaction.user_id]
+    result = SqlRunner.run(sql, values)[0]
+    user = User.new(result)
+  end
+
+  def self.budget(id)
+    sql = "SELECT budget FROM users WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)[0]["budget"]
+  end
+
+  def self.all()
+    sql = "SELECT * FROM users"
+    values = []
+    results = SqlRunner.run(sql, values)
+    users = results.map {|user| User.new(user)}
+    users
+  end
 end
