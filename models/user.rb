@@ -7,4 +7,5 @@ class User
     @name = options['name']
     @budget = options['budget'].to_i
   end
+
 end
