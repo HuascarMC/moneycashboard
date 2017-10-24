@@ -13,10 +13,19 @@ user_1.save()
 transaction_1 = Transaction.new({
   'amount' => 200,
   'tag' => 'food',
-  'shop' => 'tesco'
+  'shop' => 'tesco',
+  'user_id' => user_1.id
+})
+
+transaction_2 = Transaction.new({
+  'amount' => 300,
+  'tag' => 'clothes',
+  'shop' => 'tesco',
+  'user_id' => user_1.id
 })
 
 transaction_1.save()
+transaction_2.save()
 
 binding.pry
 nil

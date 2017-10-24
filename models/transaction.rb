@@ -1,7 +1,7 @@
 require_relative('../db/sql_runner.rb')
 
 class Transaction
-  attr_reader :id
+  attr_reader :id, :user_id
   attr_accessor :amount, :tag, :shop, :date
   def initialize(options)
     @id = options['id'].to_i
@@ -9,12 +9,13 @@ class Transaction
     @tag = options['tag']
     @shop = options['shop']
     @date = options['date']
+    @user_id = options['user_id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO transactions (amount, tag, shop, date)
-     VALUES ($1, $2, $3, current_date) RETURNING *"
-     values = [@amount, @tag, @shop]
+    sql = "INSERT INTO transactions (amount, tag, shop, date, user_id)
+     VALUES ($1, $2, $3, current_date, $4) RETURNING *"
+     values = [@amount, @tag, @shop, @user_id]
      @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
