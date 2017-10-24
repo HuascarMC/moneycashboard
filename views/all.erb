@@ -1,28 +1,8 @@
-<form action="index.html" method="post">
+<form action="/transaction/all" method="post">
   <label for="cuser">Select user:</label>
-  <input id="cuser" type="text" name="">
+  <select id="cuser" name="id">
+    <% @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.name %></option>
+    <% end %>
+  </select>
 </form>
-
-    <% @transactions.each do |transaction|%>
-     <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
-     <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
-
-     <form  action="/transaction/<%= transaction.id %>/delete" method="post">
-       <input type="submit" value="delete"/>
-     </form>
-
-    <% end %>
-    <% if @total != nil %>
-    <p> Total: <%= @total %> </p>
-    <% end %>
-
-     <% if @budget != nil %>
-       <p>Budget: <%= @budget %></p>
-           <% if @budget.to_i < 0 %>
-           <p> You've gone over budget, you're broke.</p>
-           <% else %>
-           <p> You still have £<%= @budget %> to spend.</p>
-           <% end %>
-       <% else %>
-       <p>No budget has been set yet.</p>
-     <% end %>

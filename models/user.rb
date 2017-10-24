@@ -18,10 +18,27 @@ class User
   end
 
   def self.find(transaction)
+    return if transaction != nil
     sql = "SELECT * FROM users WHERE id = $1"
     values = [transaction.user_id]
     result = SqlRunner.run(sql, values)[0]
     user = User.new(result)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM users WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)[0]
+    user = User.new(result)
+    return user
+  end
+
+  def find_transactions()
+    sql = "SELECT * FROM transactions WHERE user_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    transactions = results.map {|transaction| Transaction.new(transaction)}
+    return transactions
   end
 
   def self.budget(id)

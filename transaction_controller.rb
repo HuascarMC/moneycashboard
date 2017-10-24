@@ -18,16 +18,16 @@ post '/transaction' do
   redirect to '/transaction'
 end
 
-get '/transaction/all' do
-  @transactions = Transaction.all()
-  @total = Transaction.total()
+get '/transaction/:id/all' do
   @users = User.all()
   erb(:all)
 end
 
-post '/transaction/all' do
+post '/transaction/:id/all' do
   @users = User.all()
-
+  @user = User.find(params[:id])
+  @transactions = @user.find_transactions()
+  redirect to '/transaction/:id/all'
 end
 
 get '/transaction/:id/edit' do
