@@ -7,7 +7,11 @@ require_relative('./models/user.rb')
 
 get '/transaction' do
   @users = User.all()
-  erb(:index)
+  if (@users.count() != 0)
+    erb(:index)
+  else
+    redirect to '/transaction/new_user'
+  end
 end
 
 post '/transaction' do
@@ -24,10 +28,13 @@ get '/transaction/all/:user' do
 end
 
 post '/transaction/all/:user' do
-  @user = User.find(params[:id])
-  @transactions = @user.find_transactions()
-  @total = Transaction.total(@user.id)
-  erb(:show)
+  if @user = User.find(params[:id])
+    @transactions = @user.find_transactions()
+    @total = Transaction.total(@user.id)
+    erb(:show)
+  else
+    redirect to '/transaction/all/:user'
+  end
 end
 
 get '/transaction/:id/edit' do
@@ -41,8 +48,13 @@ post '/transaction/:id/edit' do
 end
 
 get '/transaction/by_tag' do
-  @tags = Transaction.alltags()
-  erb(:by_tag)
+  @users = User.all()
+  if @users.count() != 0
+    @tags = Transaction.alltags()
+    erb(:by_tag)
+  else
+    redirect to '/transaction/new_user'
+  end
 end
 
 post '/transaction/by_tag' do

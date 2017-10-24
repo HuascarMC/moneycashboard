@@ -25,7 +25,7 @@ class User
   end
 
   def self.find(id)
-    return if id == nil
+    return "No user" if id == nil
     sql = "SELECT * FROM users WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)[0]
