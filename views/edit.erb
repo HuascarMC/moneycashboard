@@ -8,5 +8,9 @@
   <label for="tshop">Shop:</label>
   <input type="text" name="shop" value="<%= @transaction.shop %>" id="tshop"/>
 
-  <input type="submit" value="update">
+  <label for="tdate">Date</label>
+  <input id="tdate" value ="<= @transaction.date %>" type="date" name="date"/>
+
+
+  <input type="submit" value="update"/>
 </form>

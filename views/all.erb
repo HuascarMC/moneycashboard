@@ -1,5 +1,5 @@
 <% @transactions.each do |transaction|%>
- <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %></p>
+ <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
  <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
 
  <form  action="/transaction/<%= transaction.id %>/delete" method="post">
