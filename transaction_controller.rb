@@ -12,7 +12,7 @@ end
 
 post '/transaction' do
   @transaction = Transaction.new(params)
-  @transaction.save()
+  @saved = @transaction.save()
   @user = User.find(@transaction)
   @user.subtract(@transaction)
   redirect to '/transaction'

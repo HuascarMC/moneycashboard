@@ -1,4 +1,4 @@
-require_relative('../db/sql_runner.rb')
+require_relative('user.rb')
 
 class Transaction
   attr_reader :id
@@ -13,10 +13,16 @@ class Transaction
   end
 
   def save()
+    budget = User.budget(@user_id)
     sql = "INSERT INTO transactions (amount, tag, shop, date, user_id)
      VALUES ($1, $2, $3, current_date, $4) RETURNING *"
      values = [@amount, @tag, @shop, @user_id]
      @id = SqlRunner.run(sql, values)[0]['id'].to_i
+     if budget.to_i >= amount.to_i
+       return "Success"
+     else
+       return "You're going your budget limit"
+     end
   end
 
   def self.all()

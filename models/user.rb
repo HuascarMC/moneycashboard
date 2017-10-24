@@ -1,4 +1,5 @@
 require_relative('transaction.rb')
+require_relative('../db/sql_runner.rb')
 class User
   attr_reader :id
   attr_accessor :name, :budget
@@ -14,11 +15,6 @@ class User
     VALUES ($1, $2) RETURNING *"
     values = [@name, @budget]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
-  end
-
-  def subtract(transaction)
-    amount = transaction.amount
-    @budget = @budget - amount
   end
 
   def self.find(transaction)
@@ -39,6 +35,18 @@ class User
     values = []
     results = SqlRunner.run(sql, values)
     users = results.map {|user| User.new(user)}
-    users
+    return users
+  end
+
+  def update()
+    sql = "UPDATE users SET (budget) = ($1) WHERE id = $2"
+    values = [@budget, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def subtract(transaction)
+    amount = transaction.amount
+    @budget = @budget - amount
+    update()
   end
 end
