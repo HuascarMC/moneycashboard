@@ -2,16 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="/main.css">
     <title>Money Cashboard</title>
   </head>
   <body>
-    <div class="sidebar">
-      <a href="/transaction">Home</a>
-      <a href="/transaction/all/:user">All transactions</a>
-      <a href="/transaction/by_tag">Search by tag</a>
-      <a href="/transaction/new_user">Create user</a>
-    </div>
-    <%= yield %>
+    <div class="grid">
+
+      <div class="grid-row-sm">
+        <div class="cellogo">
+          
+        </div>
+      </div>
+
+        <div class="grid-row">
+          <div class="cell"><a href="/transaction">Home</a></div>
+          <div class="cell"><a href="/transaction/all/:user">All transactions</a></div>
+          <div class="cell"><a href="/transaction/by_tag">Search by tag</a></div>
+          <div class="cell"><a href="/transaction/new_user">Create user</a></div>
+        </div>
+
+      <div class="grid-row-md">
+        <div class="cellb"><%= yield %></div>
+      </div>
+
+   </div>
   </body>
 </html>
