@@ -2,13 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/public/main.css">
     <title>Money Cashboard</title>
   </head>
   <body>
-    <a href="/transaction">Home</a>
-    <a href="/transaction/all/:user">All transactions</a>
-    <a href="/transaction/by_tag">Search by tag</a>
-    <a href="/transaction/new_user">Create user</a>
+    <div class="sidebar">
+      <a href="/transaction">Home</a>
+      <a href="/transaction/all/:user">All transactions</a>
+      <a href="/transaction/by_tag">Search by tag</a>
+      <a href="/transaction/new_user">Create user</a>
+    </div>
     <%= yield %>
   </body>
 </html>
