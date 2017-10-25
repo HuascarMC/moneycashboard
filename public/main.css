@@ -1,18 +1,36 @@
 body {
   margin: 0;
   height: 100%;
-  background-color: #ffffff;
   text-align: center;
+  background-image: url('https://img.tulaoshi.com/image/20150521/eaed5289da69d6ccde18a3a230c22d36.jpg');
 }
 
 a {
-  text-decoration: none;
+  text-decoration : none;
+  color: rgb(229, 232, 238);
 }
 
 .grid-row-sm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #404040;
+}
+
+h1 {
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 275px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+h1:hover {
+
 }
 
 .cellogo {
@@ -21,22 +39,24 @@ a {
   width: 15%;
   height: 300px;
   justify-content: center;
+  flex-direction: row;
 }
 
 .grid-row {
   display: flex;
   flex-direction: row;
   height: 100%;
+  opacity: 70%;
 }
 
 .cell {
   flex: 1;
   padding: 10px;
-  border: solid 3px rgb(240, 115, 81);
+  /*border: solid 3px rgb(240, 115, 81);*/
   width: 15%;
   justify-content: center;
   text-decoration-color: rgb(50, 50, 50);
-  background-color: #f4f3f1;
+  background-color: rgb(97, 97, 97);
 }
 
 .cellb {
@@ -44,21 +64,25 @@ a {
   padding: 10px;
   border: solid 3px rgb(240, 115, 81);
   width: 15%;
-  justify-content: center;
+  justify-content: bottom;
+  align-items: bottom;
   text-decoration-color: rgb(50, 50, 50);
-  margin-right: 20%;
   background-color: #f4f3f1;
   border-radius: 2em;
+
 }
 
 .cell:hover {
-  background-color: rgb(97, 97, 97);
+     background-color: #404040;
 }
 
 .grid-row-md {
   display: flex;
-  margin-top: 15%;
-  margin-left: 15%;
+  flex-direction: column;
+  justify-content: bottom;
+  align-items: bottom;
+  padding: 120px;
+  font-weight: bold;
 }
 
 @media all and ( min-width: 480px ) {

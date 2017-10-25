@@ -24,7 +24,14 @@ end
 
 get '/transaction/all/:user' do
   @users = User.all()
-  erb(:all)
+  @transactions = Transaction.all()
+  if @users.count > 0 && @transactions.count > 0
+    erb(:all)
+  elsif @users.count > 0 && @transactions.count == 0
+    redirect to '/transaction'
+  else
+    redirect to '/transaction/new_user'
+  end
 end
 
 post '/transaction/all/:user' do
@@ -49,9 +56,11 @@ end
 
 get '/transaction/by_tag' do
   @users = User.all()
-  if @users.count() != 0
-    @tags = Transaction.alltags()
+  @tags = Transaction.alltags()
+  if @users.count() != 0 && @tags.count() != 0
     erb(:by_tag)
+  elsif @users.count() != 0 && @tags.count() == 0
+    redirect to '/transaction'
   else
     redirect to '/transaction/new_user'
   end

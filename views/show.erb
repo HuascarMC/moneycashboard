@@ -1,13 +1,57 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+</style>
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Tag</th>
+    <th>Shop</th>
+    <th>Date</th>
+    <th>Action</th>
+    <th></th>
+  </tr>
 <% if @user != nil %>
   <% @transactions.each do |transaction|%>
-   <p>£<%= transaction.amount %> Tag: <%= transaction.tag %> Shop: <%= transaction.shop %> Date: <%= transaction.date %></p>
-   <a href="/transaction/<%=transaction.id%>/edit">Edit</a>
+    <tr>
+      <td> £<%= transaction.amount %> </td>
+      <td><%= transaction.tag %></td>
+      <td> <%= transaction.shop %></td>
+      <td><%= transaction.date %></td>
 
-   <form  action="/transaction/<%= transaction.id %>/delete" method="post">
-     <input type="submit" value="delete"/>
-   </form>
+   <td><a class="button" href="/transaction/<%=transaction.id%>/edit">Edit</a></td>
+    <td><form  action="/transaction/<%= transaction.id %>/delete" method="post">
+       <input class="button" type="submit" value="delete"/></form></td>
 
-  <% end %>
+       <% end %>
+ </table>
+
   <% if @total != nil %>
   <p> Total: <%= @total %> </p>
   <% end %>
@@ -22,4 +66,4 @@
      <% else %>
      <p>No budget has been set yet.</p>
    <% end %>
-<% end %>   
+<% end %>
