@@ -69,9 +69,7 @@ end
 get '/transaction/search' do
   @tags = Transaction.alltags()
   @total = Transaction.totaltag(params['tag'])
-  if params != ""
-    @totaldate = Transaction.totaldate(params['date'])
-  end
+  @totaldate = Transaction.totaldate(params['date'])
   erb(:search)
 end
 
