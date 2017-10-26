@@ -51,7 +51,7 @@ end
 
 post '/transaction/:id/edit' do
   Transaction.new(params).update()
-  redirect to '/transaction/all'
+  redirect to '/transaction/all/:user'
 end
 
 get '/transaction/by_tag' do
