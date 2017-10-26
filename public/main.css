@@ -2,7 +2,9 @@ body {
   margin: 0;
   height: 100%;
   text-align: center;
-  background-image: url('https://img.tulaoshi.com/image/20150521/eaed5289da69d6ccde18a3a230c22d36.jpg');
+  background-color: rgb(246, 183, 125);
+  font-style: Lato;
+  /*background-image: url('https://img.tulaoshi.com/image/20150521/eaed5289da69d6ccde18a3a230c22d36.jpg');*/
 }
 
 a {
@@ -143,7 +145,7 @@ margin-top: 0;
   flex-direction: column;
   justify-content: bottom;
   align-items: bottom;
-  padding: 120px;
+  padding: 90px;
   font-weight: bold;
 }
 
@@ -184,9 +186,9 @@ grid {
     box-sizing: border-box;
 }
 
-/* .button */
+/* .lbutton */
 
-.button {
+.lbutton {
     display: inline-block;
     position: relative;
     margin: 1em;
@@ -202,7 +204,7 @@ grid {
     width: 300px;
 }
 
-.button span {
+.lbutton span {
     -webkit-transition: 0.6s;
     -moz-transition: 0.6s;
     -o-transition: 0.6s;
@@ -213,8 +215,8 @@ grid {
     transition-delay: 0.2s;
 }
 
-.button:before,
-.button:after {
+.lbutton:before,
+.lbutton:after {
     content: '';
     position: absolute;
     top: 0.67em;
@@ -230,7 +232,7 @@ grid {
 
 /* :before */
 
-.button:before {
+.lbutton:before {
     content: attr(data-hover);
     -webkit-transform: translate(-150%,0);
     -moz-transform: translate(-150%,0);
@@ -241,7 +243,7 @@ grid {
 
 /* :after */
 
-.button:after {
+.lbutton:after {
     content: attr(data-active);
     -webkit-transform: translate(150%,0);
     -moz-transform: translate(150%,0);
@@ -252,8 +254,8 @@ grid {
 
 /* Span on :hover and :active */
 
-.button:hover span,
-.button:active span {
+.lbutton:hover span,
+.lbutton:active span {
     opacity: 0;
     -webkit-transform: scale(0.3);
     -moz-transform: scale(0.3);
@@ -267,8 +269,8 @@ grid {
     and :after pseudo-element on :active
 */
 
-.button:hover:before,
-.button:active:after {
+.lbutton:hover:before,
+.lbutton:active:after {
     opacity: 1;
     -webkit-transform: translate(0,0);
     -moz-transform: translate(0,0);
@@ -285,7 +287,7 @@ grid {
   We hide :before pseudo-element on :active
 */
 
-.button:active:before {
+.lbutton:active:before {
     -webkit-transform: translate(-150%,0);
     -moz-transform: translate(-150%,0);
     -ms-transform: translate(-150%,0);
