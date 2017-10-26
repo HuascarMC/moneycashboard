@@ -2,7 +2,7 @@ body {
   margin: 0;
   height: 100%;
   text-align: center;
-  background-color: rgb(246, 183, 125);
+  background-color: rgba(3, 73, 33, 0.41);
   font-style: Lato;
   /*background-image: url('https://img.tulaoshi.com/image/20150521/eaed5289da69d6ccde18a3a230c22d36.jpg');*/
 }

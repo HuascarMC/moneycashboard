@@ -57,13 +57,13 @@ tr:nth-child(even) {
   <% end %>
 
    <% if @user.budget != nil %>
-     <p>Budget: <%= @user.budget %></p>
+     <h3>Budget: <%= @user.budget %></h3>
          <% if @user.budget.to_i < 0 %>
-         <p> You've gone over budget, you're broke.</p>
+         <h3> You've gone over budget, you're broke.</h3>
          <% else %>
-         <p> You still have £<%= @user.budget %> to spend.</p>
+         <h3> You still have £<%= @user.budget %> to spend.</h3>
          <% end %>
      <% else %>
-     <p>No budget has been set yet.</p>
+     <h3>No budget has been set yet.</h3>
    <% end %>
 <% end %>
