@@ -2,7 +2,7 @@ body {
   margin: 0;
   height: 100%;
   text-align: center;
-  background-color: rgba(3, 73, 33, 0.41);
+  background-color: rgba(199, 23, 23, 0.57);
   font-style: Lato;
   /*background-image: url('https://img.tulaoshi.com/image/20150521/eaed5289da69d6ccde18a3a230c22d36.jpg');*/
 }
@@ -126,7 +126,7 @@ margin-top: 0;
 .cellb {
   flex: 1;
   padding: 10px;
-  border: solid 3px rgb(240, 115, 81);
+  border: solid 5px rgb(233, 93, 55);
   width: 15%;
   justify-content: bottom;
   align-items: bottom;
