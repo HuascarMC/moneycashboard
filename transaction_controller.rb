@@ -34,7 +34,7 @@ get '/transaction/all/:user' do
   end
 end
 
-post '/transaction/all/:user' do
+get '/transaction/all' do
   if @user = User.find(params[:id])
     @transactions = @user.find_transactions()
     @total = Transaction.total(@user.id)
@@ -54,7 +54,7 @@ post '/transaction/:id/edit' do
   redirect to '/transaction/all/:user'
 end
 
-get '/transaction/by_tag' do
+get '/transaction/search/:id' do
   @users = User.all()
   @tags = Transaction.alltags()
   if @users.count() != 0 && @tags.count() != 0
@@ -66,16 +66,23 @@ get '/transaction/by_tag' do
   end
 end
 
-post '/transaction/by_tag' do
+get '/transaction/search' do
   @tags = Transaction.alltags()
   @total = Transaction.totaltag(params['sum'])
+  erb(:by_tag)
+end
+
+get '/transaction/search' do
+  @dates = Transaction.dates()
+  @total = Transaction.totaldate(params['sum'])
   erb(:by_tag)
 end
 
 post '/transaction/:id/delete' do
   @transaction = Transaction.find(params[:id])
   @transaction.delete()
-  redirect to '/transaction/all/:user'
+
+  redirect to "/transaction/all?id=#{@transaction.user_id.to_s}"
 end
 
 get '/transaction/new_user' do

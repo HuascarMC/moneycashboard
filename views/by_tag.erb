@@ -1,10 +1,17 @@
-<form action="/transaction/by_tag" method="post">
+<form action="/transaction/search" method="get">
   <label for="ttag">Select tag: </label>
     <select id="ttag" name="sum">
         <% @tags.each do |object| %>
         <option value="<%=object.tag%>"><%= object.tag %></option>
         <%end%>
     </select>
+
+    <input type="submit" value="find">
+</form>
+
+<form action="/transaction/search" method="get">
+  <label for="ttag">Select date: </label>
+  <input id="tdate" value ="<= @transaction.date %>" type="date" name="date"/>
 
     <input type="submit" value="Total by tag">
 </form>

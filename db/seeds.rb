@@ -8,7 +8,7 @@ user_1 = User.new({
   'budget' => 300
 })
 
-user_1.save()
+# user_1.save()
 
 transaction_1 = Transaction.new({
   'amount' => 200,
@@ -24,7 +24,7 @@ transaction_2 = Transaction.new({
   'user_id' => user_1.id
 })
 
-transaction_1.save()
+# transaction_1.save()
 # transaction_2.save()
 
 binding.pry

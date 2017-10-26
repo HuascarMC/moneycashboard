@@ -65,4 +65,18 @@ class Transaction
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def self.dates()
+    sql = "SELECT DISTINCT date FROM transactions"
+    values = []
+    results = SqlRunner.run(sql, values)
+    transactions = results.map {|transaction| Transaction.new(transaction)}
+    return transactions
+  end
+
+  def self.totaldate(date)
+    sql = "SELECT SUM(amount) FROM transactions WHERE date = $1"
+    values = [date]
+    SqlRunner.run(sql, values)[0]['sum']
+  end
 end
