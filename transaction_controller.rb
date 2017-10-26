@@ -54,11 +54,11 @@ post '/transaction/:id/edit' do
   redirect to '/transaction/all/:user'
 end
 
-get '/transaction/search/:id' do
+get '/transaction/search/:sum' do
   @users = User.all()
   @tags = Transaction.alltags()
-  if @users.count() != 0 && @tags.count() != 0
-    erb(:by_tag)
+  if @users.count() != 0 && @tags.count() != 0 && @dates.count() != 0
+    erb(:search)
   elsif @users.count() != 0 && @tags.count() == 0
     redirect to '/transaction'
   else
@@ -68,14 +68,11 @@ end
 
 get '/transaction/search' do
   @tags = Transaction.alltags()
-  @total = Transaction.totaltag(params['sum'])
-  erb(:by_tag)
-end
-
-get '/transaction/search' do
-  @dates = Transaction.dates()
-  @total = Transaction.totaldate(params['sum'])
-  erb(:by_tag)
+  @total = Transaction.totaltag(params['tag'])
+  if params != ""
+    @totaldate = Transaction.totaldate(params['date'])
+  end
+  erb(:search)
 end
 
 post '/transaction/:id/delete' do

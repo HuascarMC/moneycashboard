@@ -1,6 +1,6 @@
 <form action="/transaction/search" method="get">
   <label for="ttag">Select tag: </label>
-    <select id="ttag" name="sum">
+    <select id="ttag" name="tag">
         <% @tags.each do |object| %>
         <option value="<%=object.tag%>"><%= object.tag %></option>
         <%end%>
@@ -10,12 +10,15 @@
 </form>
 
 <form action="/transaction/search" method="get">
-  <label for="ttag">Select date: </label>
-  <input id="tdate" value ="<= @transaction.date %>" type="date" name="date"/>
-
+  <label for="tdate">Select date: </label>
+   <input id="tdate" value="nil" type="date" name="date"/>
     <input type="submit" value="Total by tag">
 </form>
 
 <% if @total != nil %>
-<p>Total: <%= @total %></p>
+ <p>Total: <%= @total %></p>
+<% end %>
+
+<% if @totaldate != nil %>
+ <p>Total: <%= @totaldate %></p>
 <% end %>
