@@ -1,7 +1,6 @@
 require_relative('../models/transaction.rb')
 require_relative('../models/user.rb')
 require_relative('../db/sql_runner.rb')
-require('pry')
 
 user_1 = User.new({
   'name' => 'Maggie',
@@ -26,6 +25,3 @@ transaction_2 = Transaction.new({
 
 # transaction_1.save()
 # transaction_2.save()
-
-binding.pry
-nil

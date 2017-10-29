@@ -57,7 +57,6 @@ tr:nth-child(even) {
   <% end %>
 
    <% if @user.budget != nil %>
-     <h3>Budget: <%= @user.budget %></h3>
          <% if @user.budget.to_i < 0 %>
          <h3> You've gone over budget, you're broke.</h3>
          <% else %>

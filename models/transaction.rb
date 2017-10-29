@@ -75,7 +75,7 @@ class Transaction
   end
 
   def self.totaldate(date)
-    return if date == "none"
+    return if date == ""
     sql = "SELECT SUM(amount) FROM transactions WHERE date = $1"
     values = [date]
     SqlRunner.run(sql, values)[0]['sum']
