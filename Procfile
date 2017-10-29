@@ -1,1 +1,1 @@
-web: ruby controller.rb
+web: ruby transaction_controller.rb
