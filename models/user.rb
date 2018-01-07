@@ -22,6 +22,7 @@ class User
     values = [transaction.user_id]
     result = SqlRunner.run(sql, values)[0]
     user = User.new(result)
+    return user
   end
 
   def self.find(id)
