@@ -7,7 +7,7 @@ user_1 = User.new({
   'budget' => 300
 })
 
-# user_1.save()
+user_1.save()
 
 transaction_1 = Transaction.new({
   'amount' => 200,
