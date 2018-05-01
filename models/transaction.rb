@@ -52,6 +52,7 @@ class Transaction
     values = [id]
     result = SqlRunner.run(sql, values)[0]
     transaction = Transaction.new(result)
+    return transaction
   end
 
   def update()
